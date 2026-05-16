@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>[%thread] %level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Set root logger to WARN level to suppress INFO logs -->
+    <root level="WARN">
+        <appender-ref ref="CONSOLE" />
+    </root>
+
+    <!-- Optional: Set specific loggers to WARN if needed -->
+    <logger name="soot.jimple.infoflow.android" level="WARN" />
+    <logger name="soot" level="WARN" />
+</configuration>

@@ -3,23 +3,21 @@ package com.fdu.se.sootanalyze.utils;
 import java.sql.*;
 
 public class DBUtil {
-//    private final static String DRIVER = "com.mysql.jdbc.Driver";
-//    private final static String URL = "jdbc:mysql://127.0.0.1:3306/android?useUnicode=true&characterEncoding=UTF-8&useSSL=false";
-//    private final static String USERNAME = "root";
-//    private final static String PASSWORD = "1234";
-    private final static String DRIVER = LoadProperties.get("DRIVER");
+    // private final static String DRIVER = "com.mysql.jdbc.Driver";
+    // private final static String URL =
+    // "jdbc:mysql://127.0.0.1:3306/android?useUnicode=true&characterEncoding=UTF-8&useSSL=false";
+    // private final static String USERNAME = "root";
+    // private final static String PASSWORD = "1234";
     private final static String URL = LoadProperties.get("MYSQLURL");
     private final static String USERNAME = LoadProperties.get("MYSQLUSERNAME");
     private final static String PASSWORD = LoadProperties.get("MYSQLPASSWORD");
 
-    public static Connection getConnection(){
+    public static Connection getConnection() {
         Connection connection = null;
-        try{
-            Class.forName(DRIVER);
-            connection = DriverManager.getConnection(URL,USERNAME,PASSWORD);
-            System.out.println("connect successfully");
-
-        }catch(Exception e ){
+        try {
+            // Class.forName(DRIVER);
+            connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return connection;
@@ -34,6 +32,7 @@ public class DBUtil {
         }
         connection = null;
     }
+
     public static void closePreparedStatement(PreparedStatement preparedStatement) {
         try {
             if (preparedStatement != null)
@@ -43,22 +42,24 @@ public class DBUtil {
         }
         preparedStatement = null;
     }
-    public static void closeStatement(Statement statement){
-        try{
-            if(statement != null){
+
+    public static void closeStatement(Statement statement) {
+        try {
+            if (statement != null) {
                 statement.close();
             }
 
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         statement = null;
     }
-    public static void closeResultset(ResultSet resultSet){
-        try{
-            if(resultSet != null)
+
+    public static void closeResultset(ResultSet resultSet) {
+        try {
+            if (resultSet != null)
                 resultSet.close();
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         resultSet = null;
